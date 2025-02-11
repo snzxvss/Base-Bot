@@ -1,0 +1,138 @@
+[
+  {
+    "ID": 1,
+    "Nombre": "Articulo 1",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 10
+  },
+  {
+    "ID": 2,
+    "Nombre": "Articulo 2",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 20
+  },
+  {
+    "ID": 3,
+    "Nombre": "Articulo 3",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 30
+  },
+  {
+    "ID": 4,
+    "Nombre": "Articulo 4",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 40
+  },
+  {
+    "ID": 5,
+    "Nombre": "Articulo 5",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 50
+  },
+  {
+    "ID": 6,
+    "Nombre": "Articulo 6",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 60
+  },
+  {
+    "ID": 7,
+    "Nombre": "Articulo 7",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 70
+  },
+  {
+    "ID": 8,
+    "Nombre": "Articulo 8",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 80
+  },
+  {
+    "ID": 9,
+    "Nombre": "Articulo 9",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 90
+  },
+  {
+    "ID": 10,
+    "Nombre": "Articulo 10",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 100
+  },
+  {
+    "ID": 11,
+    "Nombre": "Articulo 11",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 110
+  },
+  {
+    "ID": 12,
+    "Nombre": "Articulo 12",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 120
+  },
+  {
+    "ID": 13,
+    "Nombre": "Articulo 13",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 130
+  },
+  {
+    "ID": 14,
+    "Nombre": "Articulo 14",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 140
+  },
+  {
+    "ID": 15,
+    "Nombre": "Articulo 15",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 150
+  },
+  {
+    "ID": 16,
+    "Nombre": "Articulo 16",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 160
+  },
+  {
+    "ID": 17,
+    "Nombre": "Articulo 17",
+    "Descripción": "Descripción Articulo",
+    "Precio": "Precio Articulo",
+    "ImagenURL": "https://www.imagen.com",
+    "Stock": 170
+  }
+]
