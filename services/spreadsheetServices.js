@@ -6,7 +6,7 @@ dotenv.config()
 
 const SPREADSHEET_URL = process.env.SPREADSHEET_URL
 const SPREADSHEET_ID = SPREADSHEET_URL.match(/\/d\/([a-zA-Z0-9-_]+)/)[1]
-const SHEET_NAME = 'Articulos' // Cambia esto si tu hoja tiene otro nombre
+const SHEET_NAME = 'Articulos'
 
 console.log(`SPREADSHEET_URL: ${SPREADSHEET_URL}`)
 console.log(`SPREADSHEET_ID: ${SPREADSHEET_ID}`)
@@ -29,8 +29,16 @@ export async function fetchSpreadsheetData() {
                 return obj
             })
 
-            fs.writeFileSync('data.json', JSON.stringify(data, null, 2))
-            console.log('Data saved to data.json')
+            // Delete the file if it exists
+            const dataPath = 'data.json'
+            if (fs.existsSync(dataPath)) {
+                fs.unlinkSync(dataPath)
+                console.log('Existing data.json file deleted')
+            }
+
+            // Write new data
+            fs.writeFileSync(dataPath, JSON.stringify(data, null, 2))
+            console.log('New data saved to data.json')
         } else {
             console.log('No data found.')
         }

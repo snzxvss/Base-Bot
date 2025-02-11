@@ -1,7 +1,7 @@
 {
   "users": {
     "573005989296@s.whatsapp.net": {
-      "exp": 1094,
+      "exp": 2170,
       "coin": 0,
       "diamond": 20,
       "bank": 0,
@@ -24,7 +24,7 @@
       "premiumTime": 0
     },
     "573023606047@s.whatsapp.net": {
-      "exp": 406,
+      "exp": 1066,
       "coin": 0,
       "diamond": 20,
       "bank": 0,
@@ -70,13 +70,36 @@
       "premiumTime": 0
     },
     "573012300265@s.whatsapp.net": {
-      "exp": 27,
+      "exp": 63,
       "coin": 0,
       "diamond": 20,
       "bank": 0,
       "lastclaim": 0,
       "registered": false,
       "name": "Cristian Rojano",
+      "age": -1,
+      "regTime": -1,
+      "afk": -1,
+      "afkReason": "",
+      "banned": false,
+      "warn": 0,
+      "level": 0,
+      "role": "Novato",
+      "autolevelup": false,
+      "chatbot": false,
+      "genero": "Indeciso",
+      "language": "es",
+      "prem": false,
+      "premiumTime": 0
+    },
+    "573044782675@s.whatsapp.net": {
+      "exp": 39,
+      "coin": 0,
+      "diamond": 20,
+      "bank": 0,
+      "lastclaim": 0,
+      "registered": false,
+      "name": "Yulisa",
       "age": -1,
       "regTime": -1,
       "afk": -1,
@@ -167,6 +190,24 @@
       "rules": ""
     },
     "573012300265@s.whatsapp.net": {
+      "isBanned": false,
+      "welcome": false,
+      "detect": false,
+      "sWelcome": "",
+      "sBye": "",
+      "sPromote": "",
+      "sDemote": "",
+      "delete": true,
+      "antiLink": false,
+      "viewonce": false,
+      "useDocument": true,
+      "captcha": false,
+      "nsfw": false,
+      "modoadmin": false,
+      "expired": 0,
+      "rules": ""
+    },
+    "573044782675@s.whatsapp.net": {
       "isBanned": false,
       "welcome": false,
       "detect": false,
