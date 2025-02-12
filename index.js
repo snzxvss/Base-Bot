@@ -24,15 +24,10 @@ const rl = createInterface(process.stdin, process.stdout)
 const app = express()
 const port = process.env.PORT || 8080;
 
-say('Sylph | Bot', {
+say('Ventas | Bot', {
   font: 'pallet',
   align: 'center',
   gradient: ['red', 'magenta']
-})
-say(`TxKrull.fcv`, {
-  font: 'console',
-  align: 'center',
-  gradient: ['cyan', 'magenta']
 })
 
 app.listen(port, () => {
@@ -108,7 +103,6 @@ async function start(file) {
   console.log(chalk.yellow(`💾 Total RAM: ${ramInGB.toFixed(2)} GB`));
   const freeRamInGB = os.freemem() / (1024 * 1024 * 1024);
   console.log(chalk.yellow(`💽 Free RAM: ${freeRamInGB.toFixed(2)} GB`));
-  console.log(chalk.yellow(`📃 TxKrull.fcv`));
 
   console.log(chalk.blue.bold(`\n⏰ Hora Actual`));
   const currentTime = new Date().toLocaleString('es-ES', { timeZone: 'America/Bogota' });

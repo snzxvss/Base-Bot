@@ -27,8 +27,6 @@ function normalizeText(text) {
 const delay = ms => new Promise(resolve => setTimeout(resolve, ms))
 
 export async function all(m) {
-  console.log('Mensaje recibido:', m.text)
-  const initMensaje = m.text
 
   // Evitar responder a mensajes del propio bot
   if ((m.message && m.message.fromMe) || (m.key && m.key.fromMe) || m.isBaileys) {
@@ -75,11 +73,14 @@ export async function all(m) {
           const product = this.selectedProduct && this.selectedProduct[m.sender]
          
           let confirmMsg = "_*Por favor confirma que la siguiente información es correcta:*_\n\n"
-          confirmMsg += `*Nombre:* ${formState.name}\n`
-          confirmMsg += `*Identificación:* ${formState.idNumber}\n`
-          confirmMsg += `*Dirección:* ${formState.address}\n`
+          confirmMsg += `• *Nombre:* ${formState.name}\n`
+          confirmMsg += `• *Identificación:* ${formState.idNumber}\n`
+          confirmMsg += `• *Dirección:* ${formState.address}\n`
+          confirmMsg += "\n\t_*Información del producto*_\n\n"
           if (product) {
-            confirmMsg += `*Producto:* ${product.Nombre}\n`
+            confirmMsg += `• *Producto:* ${product.Nombre}\n`
+            confirmMsg += `• *Descripción:* ${product.Descripción}\n`
+            confirmMsg += `• *Precio:* ${product.Precio ? new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(product.Precio) : 'N/A'}\n`
           }
           confirmMsg += "\nResponde *si* para confirmar o *no* para cancelar y volver a empezar."
           
@@ -159,14 +160,18 @@ export async function all(m) {
         const productData = (this.selectedProduct && this.selectedProduct[m.sender]) || {}
         const senderNumber = `+${m.sender.split('@')[0]}`
     
-        let detailsMsg = "\t\t_*Información de transacción*_\n"
+        let detailsMsg = "\t_*Información de transacción*_\t\n\n"
         detailsMsg += `*Nombre:* ${formData.name || "N/A"}\n`
         detailsMsg += `*Identificación:* ${formData.idNumber || "N/A"}\n`
         detailsMsg += `*Número:* ${senderNumber}\n`
         detailsMsg += `*Dirección:* ${formData.address || "N/A"}\n` 
+        detailsMsg += `\n\t_*Detalles del producto*_\t\n\n`
         if (productData.Nombre) {
+          detailsMsg += `*Código:* ${productData.ID || 'N/A'}\n`
           detailsMsg += `*Producto:* ${productData.Nombre}\n`
           detailsMsg += `*Descripción:* ${productData.Descripción}\n`
+          detailsMsg += `*Precio:* ${productData.Precio ? new Intl.NumberFormat('es-CO', { style: 'currency', currency: 'COP', maximumFractionDigits: 0 }).format(productData.Precio) : 'N/A'}\n`
+          detailsMsg += `*Stock:* ${productData.Stock || 'N/A'}\n`
         }
         await global.conn.sendMessage(targetJid, { text: detailsMsg })
         
@@ -228,8 +233,7 @@ export async function all(m) {
             text: "*¿Qué producto te interesa del catalogo?*\n\n" +
                   "✏️ *Opciones para buscar:*\n" +
                   "• Ingresa el *nombre* del producto.\n" +
-                  "• Ingresa el *código* del producto.\n" +
-                  "• Envía una *imagen recortada* que permita identificarlo.\n\n" +
+                  "• Ingresa el *código* del producto.\n\n" +  
                   "> 😊 ¡Estamos aquí para ayudarte!" 
           })
           // Se termina la ejecución aquí para que el primer mensaje no se procese como búsqueda
@@ -267,21 +271,21 @@ export async function all(m) {
               await m.reply(`Encontré el producto solicitado.\n*• Nombre:* ${product.Nombre}\n*• Descripción:* ${product.Descripción}\n*• Precio:* ${formattedPrice}`)
               
               try {
-              // Descargar la imagen del producto desde product.ImagenURL y enviarla
-              if (product.ImagenURL) {
-                const tempDir = path.join(process.cwd(), 'temp')
-                if (!fs.existsSync(tempDir)) {
-                  fs.mkdirSync(tempDir)
+                if (product.ImagenURL) {
+                  const tempDir = path.join(process.cwd(), './tmp')
+                  if (!fs.existsSync(tempDir)) {
+                    fs.mkdirSync(tempDir)
+                  }
+                  const uniqueSuffix = Date.now() + '-' + Math.round(Math.random() * 1E9)
+                  const imagePath = path.join(tempDir, `imagen_producto_${uniqueSuffix}.jpg`)
+                  const res = await fetch(product.ImagenURL)
+                  const buffer = await res.arrayBuffer()
+                  fs.writeFileSync(imagePath, Buffer.from(buffer))
+                  await this.sendFile(m.chat, fs.readFileSync(imagePath), `imagen_producto_${uniqueSuffix}.jpg`)
                 }
-                const imagePath = path.join(tempDir, 'imagen_producto.jpg')
-                const res = await fetch(product.ImagenURL)
-                const buffer = await res.arrayBuffer()
-                fs.writeFileSync(imagePath, Buffer.from(buffer))
-                await this.sendFile(m.chat, fs.readFileSync(imagePath), 'imagen_producto.jpg')
+              } catch (err) {
+                console.error('Error sending product image:', err)
               }
-            } catch (err) {
-              console.error('Error sending product image:', err)
-            }
               
               // Preguntar si es el producto que buscaba y establecer flag de confirmación
               await delay(1000)

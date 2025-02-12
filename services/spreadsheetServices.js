@@ -8,10 +8,6 @@ const SPREADSHEET_URL = process.env.SPREADSHEET_URL
 const SPREADSHEET_ID = SPREADSHEET_URL.match(/\/d\/([a-zA-Z0-9-_]+)/)[1]
 const SHEET_NAME = 'Articulos'
 
-console.log(`SPREADSHEET_URL: ${SPREADSHEET_URL}`)
-console.log(`SPREADSHEET_ID: ${SPREADSHEET_ID}`)
-console.log(`SHEET_NAME: ${SHEET_NAME}`)
-
 export async function fetchSpreadsheetData() {
     try {
         console.log('Fetching data from Google Sheets...')
